@@ -7,7 +7,7 @@ $operation = "mul";   // Change this to "sub", "mul", or "div" as needed
 
 $result = 0;
 
-if ($operation == "add")
+if ($operation == "")
  {
     $result = $num1 + $num2;
     echo "Addition : $num1 + $num2 = $result";

@@ -1,0 +1,57 @@
+
+    <h1>Simple PHP Calculator</h1>
+    <form action="" method="Get">
+        <label> Enter First Number:</label>
+        <input type="text" name="num1" placeholder="Enter number 1" required><br>
+        <label> Enter Second Number:</label>
+        <input type="text" name="num2" placeholder="Enter number 2" required><br>
+        <label> Choose Any Operator:</label>
+        <input type="text" name="oprte" placeholder="Put the Operator" required><br>
+        <input type="submit" name="calculator" value="Calculate">
+    </form>
+
+    <?php
+    if (isset($_GET['calculator'])) {
+        $num1 = $_GET['num1'];
+        $num2 = $_GET['num2'];
+        $operator = $_GET['oprte'];
+
+        if (is_numeric($num1) && is_numeric($num2)) 
+        {
+            if ($operator == '+') 
+            {
+                $result = $num1 + $num2;
+            }
+            elseif ($operator == '-') 
+            {
+                $result = $num1 - $num2;
+            } 
+            elseif ($operator == '*') 
+            {
+                $result = $num1 * $num2;
+            } 
+            elseif ($operator == '/') 
+            {
+                if ($num2 != 0) 
+                {
+                    $result = $num1 / $num2;
+                } 
+                else 
+                {
+                    echo "Division by zero is not allowed.";
+                }
+            } 
+            else 
+            {
+                echo "Invalid operator";
+            }
+
+            echo "Result: " . $result;
+        } 
+        else 
+        {
+            echo "Please enter valid numeric values.";
+        }
+    }
+    ?>
+
